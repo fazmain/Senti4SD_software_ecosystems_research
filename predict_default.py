@@ -3,14 +3,17 @@ import pandas as pd
 
 ### PREDICTS USING DEFAULT MODEL ###
 
+# Initialises the OpenAI client. Uncomment and use your API key
 # client = OpenAI(api_key="your_api_key")
 
+
+
 # set the model to use
-model = "gpt-40-mini"
+model = "gpt-4o-mini"
 
 # Load the validation set
 
-input_file_path = 'preprocessed_so_test.csv'
+input_file_path = 'preprocessed_gh_test.csv'
 validation_data = pd.read_csv(input_file_path)  
 
 # formatting the testing data
@@ -48,7 +51,7 @@ def get_predictions(data, model_id):
 validation_data['predicted_sentiment'] = get_predictions(validation_formatted, model)
 
 # Save predictions
-output_file_path = 'so_validation_predictions_default.csv'
+output_file_path = 'gh_validation_predictions_default.csv'
 
 validation_data.to_csv(output_file_path, index=False)
 print(f"Predictions saved as {output_file_path}.")

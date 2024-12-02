@@ -3,11 +3,11 @@ import pandas as pd
 
 # Load the predictions
 
-input_file = 'so_validation_predictions.csv'
+input_file = 'gh_validation_predictions_default.csv'
 predictions_data = pd.read_csv(input_file)  
 
 # Define ground truth and predictions
-true_labels = predictions_data['sentiment']
+true_labels = predictions_data['sentiment'] ## 'sentiment' for the stackoverflow and jira dataset, 'label' for the github dataset
 predicted_labels = predictions_data['predicted_sentiment']
 
 # Print classification metrics
@@ -15,7 +15,7 @@ report = classification_report(true_labels, predicted_labels, labels=["positive"
 print("Classification Report:")
 print(report)
 
-output_file = 'metrics_report_so_1.json'
+output_file = 'metrics_report_gh_default.json'
 
 # Save the metrics as a JSON file for future reference
 import json

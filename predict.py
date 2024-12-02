@@ -3,12 +3,18 @@ import pandas as pd
 
 ### PREDICTS USING FINE TUNED MODEL ###
 
-# client = OpenAI(api_key="your_api_key")
+# Initialises the OpenAI client. Uncomment and use your API key
+# client = OpenAI(api_key="your-api-key")
+
+# Model ID's for the fine-tuned models
+# Stackoverflow: "ft:gpt-4o-mini-2024-07-18:personal:seco-so-1:AZbBLZfd"
+# Github: "ft:gpt-4o-mini-2024-07-18:personal:seco-gh-1:AZlRYjr7"
+# Jira: "ft:gpt-4o-mini-2024-07-18:personal:seco-jira-1:AZWACc5z"
 
 # fine-tuned model ID
-fine_tuned_model_id = "ft:gpt-4o-mini-2024-07-18:personal:seco-jira-1:AZWACc5z"
+fine_tuned_model_id = "your-fine-tuned-model-id"
 
-input_file_path = 'preprocessed_so_test.csv'
+input_file_path = 'preprocessed_gh_test.csv'
 
 # loading validation set
 validation_data = pd.read_csv(input_file_path)  
@@ -50,7 +56,7 @@ validation_data['predicted_sentiment'] = get_predictions(validation_formatted, f
 
 # Save predictions
 
-output_file_path = 'so_validation_predictions.csv'
+output_file_path = 'gh_validation_predictions.csv'
 
 validation_data.to_csv(output_file_path, index=False)
 print(f"Predictions saved as {output_file_path}.")
