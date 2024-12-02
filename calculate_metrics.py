@@ -1,7 +1,7 @@
 from sklearn.metrics import classification_report
 import pandas as pd
 
-# Load the predictions
+### REFER TO THE `calculate_new_metrics.py` FILE FOR MICRO AVG SCORES INCLUDED IN THE REPORT ###
 
 input_file = 'gh_validation_predictions_default.csv'
 predictions_data = pd.read_csv(input_file)  
